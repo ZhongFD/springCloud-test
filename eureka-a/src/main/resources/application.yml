@@ -1,0 +1,30 @@
+#server:
+#  port: 8761
+#spring:
+#  application:
+#    name: eureka-server
+#eureka:
+#  client:
+#    servser-url:
+#      defaultZone: http://peer2:8762/eureka,http://peer3:8763/eureka
+#  instance:
+#    hostname: peer1
+#    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+#    prefer-ip-address: true #??ip
+#    lease-renewal-interval-in-seconds: 10 #????
+
+
+# ???????
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    servser-url:
+      defaultZone: http://peer1:8761/eureka,http://peer2:8762/eureka,http://peer3:8763/eureka
+  instance:
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+    prefer-ip-address: true #??ip
+    lease-renewal-interval-in-seconds: 5 #????
